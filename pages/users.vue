@@ -177,7 +177,7 @@ const rows = computed(() => {
     if (!q.value) {
         setTimeout(() => {
             isLoading.value = false;
-        }, 500);
+        }, 1000);
         
         return people.slice((page.value - 1) * pageCount, (page.value) * pageCount)
     }
@@ -209,6 +209,7 @@ const validate = (state) => {
 function onDelete(data) {
     const index = people.findIndex((obj) => obj.id === data.id);
     people.splice(index, 1)
+    toast.add({ title: 'User deleted successfully!' })
 }
 
 async function onEdit(data) {
