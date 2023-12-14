@@ -8,8 +8,7 @@
                     <UButton label="Add User" class="px-3" @click="isOpen = true" />
                 </div>
             </div>
-
-            <UTable v-model:sort="sort" :rows="rows" :columns="columns">
+            <UTable v-model:sort="sort" :rows="rows" :columns="columns" :loading="isLoading" :loading-state="{ icon: 'i-heroicons-arrow-path-20-solid', label: 'Loading...' }">
                 <template #empty-state>
                     <div class="flex flex-col items-center justify-center py-6 gap-3">
                         <span class="italic text-sm">Not found!</span>
@@ -63,6 +62,7 @@
 <script setup>
 const q = ref('')
 const isOpen = ref(false)
+const isLoading = ref(true)
 const toast = useToast()
 
 const links = [
@@ -175,6 +175,10 @@ const pageCount = 5
 
 const rows = computed(() => {
     if (!q.value) {
+        setTimeout(() => {
+            isLoading.value = false;
+        }, 500);
+        
         return people.slice((page.value - 1) * pageCount, (page.value) * pageCount)
     }
 
