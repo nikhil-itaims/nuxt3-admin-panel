@@ -9,7 +9,8 @@
             </template>
         </UVerticalNavigation>
         <div class="flex justify-center">
-            <UIcon class="fixed bottom-0 mb-3 w-9 h-9 text-green-500 cursor-pointer" :class="{ 'toggle-icon': !isOpen }" name="i-heroicons-arrow-right-circle-20-solid" @click="isOpen = !isOpen" />
+            <UIcon class="fixed bottom-0 mb-3 w-9 h-9 text-green-500 cursor-pointer" :class="{ 'toggle-icon': !isOpen }"
+                name="i-heroicons-arrow-right-circle-20-solid" @click="isOpen = !isOpen" />
         </div>
     </div>
 </template>
@@ -53,5 +54,4 @@ const links = [
 .toggle-icon {
     transform: rotate(180deg);
 }
-
 </style>

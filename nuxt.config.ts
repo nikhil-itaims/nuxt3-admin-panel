@@ -6,5 +6,8 @@ export default defineNuxtConfig({
     css: [
         '@/static/global.css',
     ],
-    modules: ['@nuxt/ui']
+    modules: ['@nuxt/ui', "@nuxt/content"],
+    content: {
+        documentDriven: true
+    }
 })
